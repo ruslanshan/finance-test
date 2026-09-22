@@ -211,7 +211,7 @@ const AUTHOR_NAME = 'Шандриков Руслан Владимирович';
 const AUTHOR_CONTACT = 'Telegram @rushandrikov';
 const POLICY_DATE = '22 сентября 2026 г.';
 // ▼▼▼ Адрес сервера семейного бюджета (Cloudflare Worker). Пусто – семейный режим выключен. ▼▼▼
-const FAMILY_API = ''; // ← сюда адрес ТЕСТОВОГО воркера, например https://tochka-b-api-test.rolionxxx.workers.dev
+const FAMILY_API = 'https://tochka-b-api-test.rolionxxx.workers.dev'; // ← сюда адрес ТЕСТОВОГО воркера, например https://tochka-b-api-test.rolionxxx.workers.dev
 /* ================= Telegram ================= */
 const tg = window.Telegram && window.Telegram.WebApp;
 const TGV = v => { try { return !!(tg && tg.initData && tg.isVersionAtLeast(v)); } catch (e) { return false; } };
