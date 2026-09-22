@@ -201,14 +201,12 @@ textarea{min-height:140px;font-family:ui-monospace,Menlo,Consolas,monospace;font
  * Копирование, изменение и распространение кода без письменного разрешения автора запрещены.
  */
 const APP_VERSION = '1.7.1 · 22.09.2026';
-// ▼ В тестовой копии приложения здесь стоит true: появляется красная пометка «ТЕСТ» ▼
-const TEST_MODE = true;
 // ▼▼▼ Автор и контакт – показываются в разделе «О приложении» и в политике конфиденциальности ▼▼▼
 const AUTHOR_NAME = 'Шандриков Руслан Владимирович';
 const AUTHOR_CONTACT = 'Telegram @rushandrikov';
 const POLICY_DATE = '22 сентября 2026 г.';
 // ▼▼▼ Адрес сервера семейного бюджета (Cloudflare Worker). Пусто – семейный режим выключен. ▼▼▼
-const FAMILY_API = 'https://tochka-b-api-test.rolionxxx.workers.dev'; // ← сюда адрес ТЕСТОВОГО воркера, например https://tochka-b-api-test.rolionxxx.workers.dev
+const FAMILY_API = 'https://tochka-b-api.rolionxxx.workers.dev';
 /* ================= Telegram ================= */
 const tg = window.Telegram && window.Telegram.WebApp;
 const TGV = v => { try { return !!(tg && tg.initData && tg.isVersionAtLeast(v)); } catch (e) { return false; } };
@@ -661,7 +659,7 @@ V.home = {
     const note = outside ? `<div class="warn"><b>Открыто вне Telegram.</b> Здесь данные хранятся только в этом браузере и не синхронизируются с Telegram. Чтобы работать со своими данными на компьютере, откройте бота в <a href="https://web.telegram.org/" target="_blank" rel="noopener" style="color:inherit">Telegram Web</a> или в Telegram Desktop.</div>`
       : oldTg ? '<div class="warn">Обновите Telegram – в этой версии не работает синхронизация между устройствами.</div>' : '';
     return `
-      <div class="hdr"><div class="title">Обзор${TEST_MODE ? ' <span class="badge" style="background:var(--exp);color:#fff">ТЕСТ</span>' : ''}</div><button class="iconbtn" data-act="tab" data-tab="settings" aria-label="Настройки"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></button></div>
+      <div class="hdr"><div class="title">Обзор</div><button class="iconbtn" data-act="tab" data-tab="settings" aria-label="Настройки"><svg viewBox="0 0 24 24"><path d="M4 7h10M18 7h2M4 17h4M12 17h8"/><circle cx="16" cy="7" r="2"/><circle cx="10" cy="17" r="2"/></svg></button></div>
       ${note}
       <div class="hero">
         <div class="lbl">Капитал</div>
@@ -817,7 +815,7 @@ V.settings = {
       <div class="foot">${CS ? 'Данные хранятся на устройстве и синхронизируются через облако Telegram.' : 'Данные хранятся на этом устройстве. Сделайте экспорт, чтобы не потерять их.'} Операций: ${S.tx.length}.</div>
       <div class="h1">О приложении</div>
       <div class="card"><button class="link" data-act="show-policy">Политика конфиденциальности</button><button class="link" data-act="tab" data-tab="about">О приложении и авторские права</button></div>
-      <div class="foot">«Точка Б» · версия ${APP_VERSION}${TEST_MODE ? ' · ТЕСТОВАЯ СРЕДА' : ''}<br>© 2026 ${esc(AUTHOR_NAME)}. Все права защищены.</div>`;
+      <div class="foot">«Точка Б» · версия ${APP_VERSION}<br>© 2026 ${esc(AUTHOR_NAME)}. Все права защищены.</div>`;
   }
 };
 
